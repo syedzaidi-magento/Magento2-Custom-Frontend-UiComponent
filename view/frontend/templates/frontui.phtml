@@ -1,0 +1,24 @@
+<?php
+/** @var \Syedzaidi\FrontUi\Block\Frontui $block */
+
+?>
+<h1><?= $block->getText(); ?></h1>
+
+<div id="frontui" data-bind="scope: 'frontui'">
+    <h1 data-bind="text: text"></h1>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "#frontui": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "frontui": {
+                        "component": "Syedzaidi_FrontUi/js/frontui",
+                        "text": "Data from Ui Component"
+                    }
+                }
+            }
+        }
+    }
+</script>
