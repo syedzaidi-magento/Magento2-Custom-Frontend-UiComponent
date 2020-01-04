@@ -1,11 +1,19 @@
 <?php
 /** @var \Syedzaidi\FrontUi\Block\Frontui $block */
 
+/** @var \Syedzaidi\FrontUi\ViewModel\PageList $viewModel */
+$viewModel = $block->getData('viewModel');
+
 ?>
 <h1><?= $block->getText(); ?></h1>
 
 <div id="frontui" data-bind="scope: 'frontui'">
     <h1 data-bind="text: Data"></h1>
+    <ul>
+        <!-- ko foreach: { data: getItems(), as: 'page'} -->
+        <li data-bind="text: page.title"></li>
+        <!-- /ko -->
+    </ul>
 </div>
 
 <script type="text/x-magento-init">
@@ -15,7 +23,8 @@
                 "components": {
                     "frontui": {
                         "component": "Syedzaidi_FrontUi/js/frontui",
-                        "Data": "Data bind from Ui Component"
+                        "Data": "Data bind from Ui Component",
+                        "items": <?= $viewModel->getItemsJson(); ?>
                     }
                 }
             }

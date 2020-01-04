@@ -2,7 +2,11 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-            <block class="Syedzaidi\FrontUi\Block\Frontui" name="syedzaidi.frontui" template="Syedzaidi_FrontUi::frontui.phtml" />
+            <block class="Syedzaidi\FrontUi\Block\Frontui" name="syedzaidi.frontui" template="Syedzaidi_FrontUi::frontui.phtml" >
+                <arguments>
+                    <argument name="viewModel" xsi:type="object">\Syedzaidi\FrontUi\ViewModel\PageList</argument>
+                </arguments>
+            </block>
         </referenceContainer>
     </body>
 </page>
