@@ -5,7 +5,7 @@
 <h1><?= $block->getText(); ?></h1>
 
 <div id="frontui" data-bind="scope: 'frontui'">
-    <h1 data-bind="text: text"></h1>
+    <h1 data-bind="text: Data"></h1>
 </div>
 
 <script type="text/x-magento-init">
@@ -15,7 +15,7 @@
                 "components": {
                     "frontui": {
                         "component": "Syedzaidi_FrontUi/js/frontui",
-                        "text": "Data from Ui Component"
+                        "Data": "Data bind from Ui Component"
                     }
                 }
             }
