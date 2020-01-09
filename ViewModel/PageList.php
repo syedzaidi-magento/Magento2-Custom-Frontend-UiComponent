@@ -6,6 +6,7 @@ namespace Syedzaidi\FrontUi\ViewModel;
 
 use Magento\Cms\Api\PageRepositoryInterface;
 use Magento\Framework\Api\SearchCriteriaBuilder;
+use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
 
 class PageList implements ArgumentInterface
@@ -35,12 +36,15 @@ class PageList implements ArgumentInterface
     public function getItemsJson()
     {
         $result = [];
-        foreach ($this->getItems() as $page) {
-            $result[$page->getIdentifier()] = [
-                'title' => $page->getTitle(),
-                'id' => $page->getId(),
-                'url_key' => $page->getIdentifier()
-            ];
+        try {
+            foreach ($this->getItems() as $page) {
+                $result[$page->getId()] = [
+                    'title' => $page->getTitle(),
+                    'id' => $page->getId(),
+                    'url_key' => $page->getIdentifier()
+                ];
+            }
+        } catch (LocalizedException $e) {
         }
         return json_encode($result);
     }
