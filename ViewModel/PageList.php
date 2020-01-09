@@ -38,6 +38,7 @@ class PageList implements ArgumentInterface
         foreach ($this->getItems() as $page) {
             $result[$page->getIdentifier()] = [
                 'title' => $page->getTitle(),
+                'id' => $page->getId(),
                 'url_key' => $page->getIdentifier()
             ];
         }
