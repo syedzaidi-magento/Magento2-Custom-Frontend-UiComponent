@@ -12,6 +12,7 @@ $viewModel = $block->getData('viewModel');
     <ul>
         <!-- ko foreach: { data: getItems(), as: 'page'} -->
         <li data-bind="text: page.title"></li>
+        <p data-bind="text: page.url_key"></p>
         <!-- /ko -->
     </ul>
 </div>

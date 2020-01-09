@@ -37,7 +37,8 @@ class PageList implements ArgumentInterface
         $result = [];
         foreach ($this->getItems() as $page) {
             $result[$page->getIdentifier()] = [
-                'title' => $page->getTitle()
+                'title' => $page->getTitle(),
+                'url_key' => $page->getIdentifier()
             ];
         }
         return json_encode($result);
