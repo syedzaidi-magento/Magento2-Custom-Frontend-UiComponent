@@ -1,16 +1,28 @@
 define([
     'uiElement',
-    'underscore'
-    ], function (Component, _) {
+    'underscore',
+    'ko'
+    ], function (Component, _, ko) {
         'use strict';
 
         return Component.extend({
+            koTimer: ko.observable(0),
             initialize: function() {
+                self = this;
                 this._super();
-                console.log(_.toArray(this.items));
+                this.incrementTime();
             },
             getItems: function () {
                 return _.toArray(this.items);
+            },
+            incrementTime: function () {
+                let t = 0;
+                setInterval(function() {
+                    if (t <= 9) {
+                     t++;
+                    }
+                    self.koTimer(t);
+                    }, 1000);
             }
         });
     });

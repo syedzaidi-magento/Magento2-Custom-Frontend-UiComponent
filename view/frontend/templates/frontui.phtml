@@ -8,6 +8,7 @@ $viewModel = $block->getData('viewModel');
 <h1><?= $block->getText(); ?></h1>
 
 <div id="frontui" data-bind="scope: 'frontui'">
+    <h1 data-bind="text: koTimer"></h1>
     <h4 data-bind="text: Data"></h4>
     <ul>
         <!-- ko foreach: { data: getItems(), as: 'page'} -->
